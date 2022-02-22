@@ -11,9 +11,13 @@ body {
 }
 
 html {
+    background-color: #000;
     scroll-behavior: smooth;
 }
 
+html.light {
+    background-color: #fff;
+}
 
 
 .container {
@@ -255,21 +259,19 @@ span:nth-child(3) {
 
 .skills-items {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    padding: 60px 0px 11px 0px;
+    margin-top: 60px;
+
 }
 
 .skill-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     width: 320px;
-    margin: 0px 20px 0px 20px;
-    height: 100%;
-    /* background-position: center top; */
-
+    margin: 10px auto;
+    min-height: 240px;
 }
 
 .skill-item img {
@@ -648,9 +650,10 @@ input:-webkit-autofill:active {
 /* Media Queries */
 
 @media (max-width: 1440px) {
-    .header-container {
-        padding: 20px 60px;
-        overflow-x: hidden;
+
+
+    .hero-container {
+        background-size: auto;
     }
 
     .skills {
@@ -660,8 +663,14 @@ input:-webkit-autofill:active {
 
 
 @media (max-width: 768px) {
+
+
     .header-container {
-        padding: 20px 60px;
+        background: url(./assets/adaptive/bg-small.jpg);
+        background-repeat: no-repeat;
+        background-position: center 0;
+        height: 90px;
+
     }
 
     .nav {
@@ -669,29 +678,25 @@ input:-webkit-autofill:active {
     }
 
     .nav-list {
-        position: absolute;
-        display: none;
-        right: -620px;
-        transition: 1s;
-        height: 1024px;
-        top: 0;
-
-    }
-
-    .nav-list.open {
-        position: absolute;
+        position: fixed;
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: flex-start;
         z-index: 2;
-        right: 0;
+        right: -620px;
         background-color: #000;
         width: 620px;
         height: 1024px;
         top: 0;
         padding-top: 131px;
         padding-left: 120px;
+        transition: 1s;
+
+    }
+
+    .nav-list.open {
+        right: 0;
         transition: 1s;
     }
 
@@ -716,10 +721,6 @@ input:-webkit-autofill:active {
         display: flex;
         justify-content: space-between;
         margin-right: 8px;
-    }
-
-    .header-container {
-        background: url('./assets/adaptive/bg-small.jpg')
     }
 
     .hero-container {
@@ -773,18 +774,21 @@ input:-webkit-autofill:active {
     }
 
     .skills-items {
-        justify-content: center;
-        padding: 45px 60px 5px 60px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 36px auto 0px;
+        max-width: 728px;
+        min-height: 520px;
     }
 
     .skill-item {
+        display: flex;
+        flex-direction: column;
         width: 300px;
-        margin: 0px 2px 0px 0px;
+        min-height: 224px;
+        margin: 0 auto;
     }
 
-    .skill-item:nth-child(n+3) {
-        margin-top: 75px;
-    }
 
     .skill-item h3 {
         font-size: 20px;
@@ -799,10 +803,7 @@ input:-webkit-autofill:active {
 
     /* Portfolio */
 
-    .portfolio {
-        padding-top: 78px;
-    }
-
+   
     .portfolio-btn {
         display: flex;
         flex-wrap: wrap;
@@ -920,6 +921,15 @@ input:-webkit-autofill:active {
 
     .portfolio-img {
         width: 90%;
+    }
+
+    .portfolio-btn {
+        width: 100%;
+
+    }
+
+    .btn {
+        font-size: 18px;
     }
 
     .skills-items {

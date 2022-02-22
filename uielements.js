@@ -8,8 +8,9 @@ const UI = {
   translate: document.querySelectorAll("[data-i18n]"),
   colorTheme: document.querySelector(".change-theme"),
   htmlBlocks: document.querySelectorAll(".skills, .portfolio, .video, .price"),
+  html: document.querySelector('html')
 };
 
-
+console.log(UI.html)
 
 export default UI;

@@ -20,7 +20,9 @@ function changeImage(event) {
     UI.portfolioImg.forEach(
       (img, index) =>
         (img.src = `./assets/portfolio/${season}/${index + 1}.jpg`)
+     
     );
+    
   }
 }
 
@@ -41,17 +43,17 @@ function changeClassActive(event) {
 }
 
 function getTranslate(language) {
-  const keys = Object.values(i18Obj[language]);
-  UI.translate.forEach((i, index) => (i.textContent = keys[index]));
+
+  UI.translate.forEach((i) => i.textContent = i18Obj[language][i.dataset.i18n]);
 }
 
 function changeColorTheme() {
   UI.colorTheme.classList.toggle("active");
   UI.htmlBlocks.forEach((i) => i.classList.toggle("light-theme"));
-
+  
   const checkClass = UI.colorTheme.classList.contains("active");
   checkClass ? (theme = "light") : (theme = "dark");
-  console.log(theme)
+  UI.html.classList.toggle("light");
 }
 
 
@@ -76,8 +78,8 @@ UI.portfolioBtn.forEach((btn) =>
 
 UI.switchLanguage.forEach((lang) =>
   lang.addEventListener("click", (e) => {
-    changeClassActive(e);
     let translate = e.target.textContent;
+    changeClassActive(e);
     getTranslate(translate);
   })
 );
@@ -86,3 +88,8 @@ UI.colorTheme.addEventListener("click", changeColorTheme);
 
 window.addEventListener("load", getLocalStorage);
 window.addEventListener("beforeunload", setLocalStorage);
+
+
+
+
+
